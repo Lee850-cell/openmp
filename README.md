@@ -1,2 +1,0 @@
-# openmp
-My code learning
