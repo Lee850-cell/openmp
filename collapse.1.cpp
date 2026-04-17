@@ -27,6 +27,13 @@ void sub(float *a) {
             }
         }
     }
+    #pragma omp parallel
+    {
+    
+    printf("當前運行的總線程數: %d\n", omp_get_num_threads());
+    
+    // ... 剩下的代碼
+    }
 }
 
 int main() {
