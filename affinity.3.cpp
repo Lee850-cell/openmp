@@ -13,7 +13,7 @@ void work() {
 int main() {
     // proc_bind(spread): 将线程均匀散布在不同的 CPU 槽位或核心上
     // 这能有效提高内存带宽，非常适合处理大型 3D 数组
-    #pragma omp parallel proc_bind(spread) num_threads(12)
+    #pragma omp parallel proc_bind(close) num_threads(12)
     {
         work();
     }
