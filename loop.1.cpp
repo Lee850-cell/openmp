@@ -25,7 +25,7 @@ int main() {
     if (y[N - 1] != static_cast<float>(N - 1) * 2.0f) {
         std::cerr << "Error: 2*(N-1) != y[N-1] = " << y[N - 1] << std::endl;
     } else {
-        std::cout << "計算成功！y[N-1] = " << y[N - 1] << std::endl;
+        std::cout << "計算成功! y[N-1] = " << y[N - 1] << std::endl;
     }
 
     return 0;
