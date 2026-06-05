@@ -26,12 +26,12 @@ int main(){
 }
 
 void driver(int updata,float a[], float b[], int n, omp_depend_t *obj){
-    #pragma omp parallel num_threads(2)
-    #pragma omp single
+    #pragma omp parallel num_threads(2)// 创建一个包含 2 个线程的并行区域
+    #pragma omp single// 确保以下代码块由单个线程执行，避免重复创建任务                                                         
     {
-        #pragma omp task depend(depobj: *obj)
-            update_copy(updata,a,b,n);
-        #pragma omp task depend(in: a[:n])
+        #pragma omp task depend(depobj: *obj)// 创建一个依赖于 obj 的任务，表示该任务依赖于 obj 中指定的输入输出依赖
+            update_copy(updata,a,b,n);// 调用 update_copy 函数，执行更新和拷贝操作
+        #pragma omp task depend(in: a[:n])// 创建一个依赖于 a 数组的任务，表示该任务依赖于 a 数组的输入数据
             checkpoint(a,b,n);
     }
 }

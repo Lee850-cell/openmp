@@ -7,7 +7,7 @@ void work_wrong(double p[][N][N])
 {
     int i, j, k;
 
-    #pragma omp parallel for ordered(2) private(i,j,k)
+    #pragma omp parallel for ordered(2) private(i,j,k)// 声明一个 ordered(2) 循环，表示该循环包含一个顺序区域，且依赖关系的距离为 2
     for (i=1; i<N-1; i++)
     {
         for (j=1; j<N-1; j++)
